@@ -1,0 +1,182 @@
+/* =======================================================
+   1. BARRA DE NAVEGACIÓN
+   ======================================================= */
+
+/* Color base de la barra */
+#navbar{
+  background-color:  #A9A9A9 ;   /* PARA L COLOR DE LA BARRRA DE ARRIBA */
+  transition:background-color .3s ease;
+}
+
+/* Color cuando haces scroll (>50 px) */
+#navbar.scrolled{
+  background-color:#a9a9a99a !important;/* OSEA CUANDO MUEVO LA RUEDA DEL RATON */
+  box-shadow:0 2px 4px rgba(0,0,0,.15);
+}
+
+/* Links de la barra */
+#navbar .nav-link{
+  font-size:1.2rem;
+  color:#000 !important;
+  font-weight:500;
+  letter-spacing:.8px;
+}
+#navbar .nav-link:hover{   color:#fff !important; }
+#navbar .nav-link.active{  color:#fafafaa9 !important; font-weight:600; }
+
+/* Mostrar el 1er dropdown al pasar el ratón (pantallas ≥992 px) */
+@media (min-width:992px){
+  .navbar .dropdown:hover > .dropdown-menu{
+    display:block;
+    margin-top:0;
+  }
+}
+
+/* =======================================================
+   2. HERO / PORTADA
+   ======================================================= */
+html{ scroll-behavior:smooth; }
+
+header{
+  background-image:url("../imagenes/1.jpg"); /*LA PAGINA DE INICIO LA IMAGEN*/
+  background-size:cover;
+  background-position:center;
+  color:#000;
+  text-shadow:0 1px 3px #fff;
+}
+
+/* Botón “Comenzar” */
+a.btn.btn-primary.btn-lg.mt-3{
+  background:#113964;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  padding:12px 24px;
+  transition:background .3s;
+}
+a.btn.btn-primary.btn-lg.mt-3:hover{
+  background:#0056b3;
+  color:#fff;
+}
+
+/* =======================================================
+   3. DROPDOWNS – ESTILO GENERAL
+   ======================================================= */
+.navbar .dropdown-menu{
+  min-width:18rem;
+  background:#fff;
+  border:0;
+  border-radius:.75rem;
+  box-shadow:0 .6rem 1.2rem rgba(0,0,0,.15);
+  padding:.5rem;
+  animation:fadeDown .25s ease;
+}
+
+.navbar .dropdown-item{
+  font-family:'Poppins',sans-serif;
+  font-size:1rem;
+  color:#222;
+  border-radius:.5rem;
+  padding:.55rem 1rem;
+  transition:background-color .25s,color .25s;
+}
+.navbar .dropdown-item:hover,
+.navbar .dropdown-item:focus{
+  background:#32c2459a;    /* ESTO CAMBIA CUANDO PAPOS EL MOUSE POR MARCO TEORICO */
+  color:#fff;
+}
+.navbar .dropdown-item.active{
+  background:#32c2459a;      /* LO MISMO */
+  color:#fff;
+  font-weight:600;
+}
+
+@keyframes fadeDown{
+  from{ opacity:0; transform:translateY(-10px); }
+  to  { opacity:1; transform:translateY(0); }
+}
+
+/* =======================================================
+   4. SUBMENÚS ANIDADOS (Análisis Estructurado)
+   ======================================================= */
+.dropdown-submenu{ position:relative; }
+
+/* Columna hija (oculta por defecto) */
+.dropdown-submenu .dropdown-menu{
+  left:100%;
+  top:0;
+  margin-left:.1rem;
+  display:none;
+}
+
+/* Mostrar solo la columna hija del ítem en hover */
+.dropdown-submenu:hover > .dropdown-menu{ display:block; }
+
+/* Opcional: cursor en items con submenú */
+.dropdown-submenu > a{ cursor:pointer; }
+
+/* =======================================================
+   5. LAYOUT INTERNO (páginas secundarias)
+   ======================================================= */
+
+/* Espacio para que los títulos no queden debajo de la barra fija */
+main{ padding-top:100px; }         /* mismo valor que data-bs-offset osea para los espacios */
+article[id]{ scroll-margin-top:90px; }
+
+/* List-group lateral (Marco Teórico, etc.) */
+#indiceMarco   .list-group-item,
+#indiceAmbiental .list-group-item,
+#indiceComportamiento .list-group-item{
+  border:0;
+  padding:.75rem 1rem;
+}
+#indiceMarco   .list-group-item.active,
+#indiceAmbiental .list-group-item.active,
+#indiceComportamiento .list-group-item.active{
+  background:#ff9408;/*ESTO PARA CAMBIAR EL COLOR DE LA LISTA DE LA IZQUIEDA*/
+  color:#fff;
+  font-weight:600;
+}
+/* --- Footer --- */
+.footer-link{
+  color:#d3d3d3;
+  text-decoration:none;
+  display:inline-block;
+  margin:.25rem 0;
+  transition:color .2s;
+}
+.footer-link:hover{
+  color:#fff;
+  text-decoration:underline;
+}
+footer h6{ font-size:.9rem; letter-spacing:.5px; }
+/*ACA PARA EL COLOR DE FONDO DEL FOOTER*/
+/* --- Color personalizado para el footer --- */
+footer.bg-dark{
+  /* cambia el valor por el que prefieras */
+  background-color:#4B4B4B !important;   /* ESTO LO EL FONDO CAMBIA */
+}
+
+/* si ves que el texto queda poco legible puedes ajustar también: */
+footer{ color:#e6e6e6; }          /* textos generales           */
+footer .footer-link:hover{ color:#fff; } /* enlaces al pasar el ratón */
+/*ESTO PARA EL BLOG EL ESTILO*/
+/* Tarjetas del blog */
+#blog article{
+  transition:transform .2s, box-shadow .2s;
+}
+#blog article:hover{
+  transform:translateY(-4px);
+  box-shadow:0 .5rem 1rem rgba(0,0,0,.15);
+}
+/*ACAAC PARA EL LLEER MAS DEL BLOG*/
+.blog-link{
+  color:#000000;
+  text-decoration:none;
+  font-weight:600;
+}
+.blog-link:hover{
+  color:#d35400;
+  text-decoration:underline;
+}
+
